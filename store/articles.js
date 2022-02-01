@@ -20,5 +20,10 @@ export const getters = {getArticlesSlider(state){
             return true
         else
             return false
-    })
-}}
+        })
+    },
+
+    getArticles(state){
+        return state.articles
+    },
+}

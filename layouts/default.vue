@@ -104,15 +104,19 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Новости',
+          to: '/news'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Vuetify.js/Ракитова Екатерина'
     }
-  }
+  },
+
+  async mounted() {
+    this.$store.dispatch("articles/fetchArticles")
+  },
 }
 </script>

@@ -16,10 +16,6 @@ export default{
     }
   },
 
-  async mounted() {
-    this.$store.dispatch("articles/fetchArticles")
-  },
-
   computed: {
     articles(){
       return this.$store.getters["articles/getArticlesSlider"]
