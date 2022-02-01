@@ -1,7 +1,7 @@
-export const state = ()=>({artices: []})
+export const state = ()=>({articles: []})
 
 export const mutations = {setArticles(state, payload){
-    state.artices = payload
+    state.articles = payload
 }}
 
 export const actions = {

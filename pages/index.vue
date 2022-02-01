@@ -1,9 +1,9 @@
 <template>
-  <v-carousel :show-arrows="false">
+  <v-carousel :show-arrows="true">
     <v-carousel-item
-      v-for="(item,i) in items"
+      v-for="(item,i) in articles"
       :key="i"
-      :src="`/${item}`"
+      :src="`/${item.full_image}`"
     ></v-carousel-item>
   </v-carousel>
 </template>
@@ -12,7 +12,17 @@
 export default{
   data() {
     return {
-      items: ["tigr.jpg", "flower.jpg", "lama.jpg"]
+      items: ["fill.jpeg", "full_2.jpeg", "full_3.jpg"]
+    }
+  },
+
+  async mounted() {
+    this.$store.dispatch("articles/fetchArticles")
+  },
+
+  computed: {
+    articles(){
+      return this.$store.getters["articles/getArticlesSlider"]
     }
   }
 }
