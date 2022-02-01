@@ -1,4 +1,5 @@
-export const state = () => ({ articles: [], activeArticle: {} });
+export const state = () => ({articles: [], activeArticle: {}, activeComments: [],
+});
 
 export const mutations = {
   setArticles(state, payload) {
@@ -6,6 +7,9 @@ export const mutations = {
   },
   setActiveArticle(state, payLoad) {
     state.activeArticle = payLoad;
+  },
+  setActiveComments(state, payLoad) {
+    state.activeComments = payLoad;
   },
 };
 
@@ -23,7 +27,15 @@ export const actions = {
     );
     const data = await response.json();
     commit("setActiveArticle", data);
-},
+  },
+
+  async fetchActiveComments({ commit }, id) {
+    const response = await fetch(
+      `http://demo-api.vsdev.space/api/articles/${id}/comments`
+    );
+    const data = await response.json();
+    commit("setActiveComments", data);
+  },
 };
 
 export const getters = {
@@ -40,5 +52,8 @@ export const getters = {
 
   getActiveArticle(state) {
     return state.activeArticle;
+  },
+  getActiveComments(state) {
+    return state.activeComments;
   },
 };

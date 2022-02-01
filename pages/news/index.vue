@@ -6,6 +6,7 @@
       v-for="article in articles"
       :key="article.id"
     >
+    <nuxt-link :to="`news/`+article.id">
       <v-img
         class="white--text align-end"
         height="200px"
@@ -19,7 +20,9 @@
       <v-card-text class="text--primary">
         <div>{{article.date}}</div>
       </v-card-text>
+    </nuxt-link>
     </v-card>
+    
   </div>
 </template>
 
