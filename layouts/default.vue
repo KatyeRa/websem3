@@ -116,7 +116,7 @@ export default {
   },
 
   async mounted() {
-    this.$store.dispatch("articles/fetchArticles")
+    await this.$store.dispatch("articles/fetchArticles")
   },
 }
 </script>
